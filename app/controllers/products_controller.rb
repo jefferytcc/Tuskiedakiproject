@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    @feature_product = Product.where(role: "feature")
   end
 
   # GET /products/1

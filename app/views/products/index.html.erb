@@ -2,8 +2,10 @@
   
   <div class="large-4 small-12 columns">
 
+        <% @feature_product.each do |product| %>
+            <%= image_tag(product.photos[0]) %>
 
-
+<%end%>
     <div class="hide-for-small panel">
       <h3>Feature Product</h3>
       <h5 class="subheader">Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim
@@ -17,13 +19,14 @@
       <div class="large-4 small-6 columns">
         <div class="panel">
           
-          <% @products.each do |product| %>
+         <% @products.each do |product| %>
+         <% if product.photos? %>
             <%= image_tag(product.photos[0]) %><br>
+            <% end %>
           <%= link_to product.title, product_path(product.id) %> <br>
           <%= product.price %><br>
           <%= product.description %><br>
           <%end%>
-   
         </div>
         
       </div>
