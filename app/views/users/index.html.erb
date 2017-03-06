@@ -4,7 +4,8 @@
     <div class="column">
       <table class="table">
         <tbody>
-          <% @users.each do |user| %>
+          <% @users.all.order(:role).each do |user| %>
+
             <tr>
               <%= render user %>
             </tr>
