@@ -16,6 +16,9 @@
 </p>
 
 
+
+
+
 <h3>Picture:</h3>
 			<% if @product.photos.each do |product| %>
 
@@ -23,7 +26,11 @@
 
     <% end %>
    <% end %>
+<% if user_signed_in? %>
 <% if current_user.role == "admin" %>
+   <strong>PRODUCT ROLE:</strong> <%= @product.role %><br>
 <%= link_to 'Edit', edit_product_path(@product) %>
+
+<%end%>
 <%end%>
 <%= link_to 'Back', products_path %>
