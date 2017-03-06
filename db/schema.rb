@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170305151521) do
     t.string   "image"
     t.json     "photos"
     t.integer  "user_id"
+    t.integer  "role"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree

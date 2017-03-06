@@ -7,6 +7,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string :image
       t.json :photos
       t.belongs_to :user
+      t.integer :role
 
       t.timestamps
     end
