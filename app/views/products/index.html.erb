@@ -1,36 +1,82 @@
-<div class="row">
-  
-  <div class="large-3 columns">
-
-        <% @feature_product.each do |product| %>
-            <%= image_tag(product.photos[0]) %>
-    <%end%>
-    <div class="hide-for-small panel">
-      <h3>Feature Product</h3>
-      <h5 class="subheader">Description.</h5>
+<!-- Page Content -->
+<div class="container">
+<div class="col-md-12">
+  <div class="row carousel-holder">
+    <div class="col-md-">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="item active">
+            <img class="slide-image" src="<%= @feature_product[0].photos[0]%>" alt="">
+          </div>
+          <% @feature_product[1..-1].each do |product| %>
+          <div class="item">
+            <img class="slide-image" src="<%= product.photos[0]%>" alt="">
+          </div>
+          <%end%>
+        </div>
+        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
     </div>
-    <div class="callout radius">
-    </div></a>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+      <% @products.each do |product| %>
+      <%= image_tag(product.photos[0], width:150, height:150) %>
+      
+      <div class="caption">
+        <h4 class="pull-right"><%=product.price%></h4>
+        <h4><%= link_to product.title, product_path(product.id)%>
+        </h4>
+        
+        <p><%= product.description %></p>
+      </div>
+      <%end%>
+    </div>
   </div>
 
 
-  <div class="large-6 columns">
-      <div class="large-4 small-6 columns">
-        <div class="panel">
-          
-         <% @products.each do |product| %>
-         <% if product.photos? %>
-            <%= image_tag(product.photos[0]) %><br>
-            <% end %>
-          <%= link_to product.title, product_path(product.id) %> <br>
-          <%= product.price %><br>
-          <%= product.description %><br>
-          <%end%>
-        </div>
-        
+  <div class="row">
+    <table>
+      <tr>
+        <td class="product_box">
+          <div class="product_img">
+            <% @products.each_slice(3) do |x| %>
+            
+            <tr>
+              <% x.each do |product| %>
+              <% if product.photos? %>
+              <td>
+                <%= image_tag(product.photos[0], width:150, height:150) %><br>
+                <% end %>
+              </div>
+              <div class="caption">
+                <ul class="product_ul">
+                  <li class="product_name"><%= link_to product.title, product_path(product.id) %></li>
+                  <li class="product_icon"><div class="icon_preorder"></div></li>
+                  <li class="product_price" style="clear:right;">RM<%= product.price %><br></li>
+                  <% end %>
+                  <% end %>
+                </div>
+                
+              </ul>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
-
-<div class="large-3 columns">
-<h3>Category</h3>
+  </div>
 </div>
