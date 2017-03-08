@@ -29,6 +29,11 @@
 <% if user_signed_in? %>
 <% if current_user.role == "admin" %>
    <strong>PRODUCT ROLE:</strong> <%= @product.role %><br>
+   <strong>Tags:</strong>
+   <% @product.tags.each do |tag| %>
+    <%= tag.content + ", " %>
+  <% end %>
+
 <%= link_to 'Edit', edit_product_path(@product) %>
 
 <%end%>

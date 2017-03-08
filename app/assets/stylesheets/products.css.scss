@@ -1,19 +1,75 @@
-#header {
-    background-image: url(../images/parts/header_back.gif);
-    background-repeat: no-repeat;
-    width: 1024px;
-    height: 100px;
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
-body, div, p, span, dl, dt, dd, h1, h2, h3, h4, h5, h6, address, ul, ol, li, table, caption, th, td, img, form {
-    margin: 0;
-    padding: 0;
-    border: none;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 100%;
-    text-align: left;
-    list-style: none;
+
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+
+
+footer {
+    margin: 50px 0;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+.product_table {
+    width: 310px;
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+
+.product_box {
+    width: 200x;
+    border: 1px solid #CCC;
+    padding: 1px;
+    vertical-align: top;
+}
+
+.product_img {
+    margin: 1px;
+    width: 80px;
+    height: 80;
+    float: left;
+}
+
+
+.product_ul {
+    font-size: 80%;
     list-style-type: none;
-    vertical-align: middle;
+}
+
+.product_name {
+    margin: 1px;
+    padding: 2px;
+    float: left;
+    width: 200px;
+    height: auto;
+    line-height: 107%;
+    background-color: #EAEAEA;
+    font-size: 100%;
+    font-weight: normal;
+}
+
+
+.product_price {
+    margin: 2px;
+    width: 200px;
+    color: #CC0000;
+    display: block;
+    font-size: 120%;
+    font-weight: bold;
+    text-align: right;
+    float: right;
 }

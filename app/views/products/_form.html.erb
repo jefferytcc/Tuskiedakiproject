@@ -26,6 +26,11 @@
     <%= f.text_area :description , :required=>true%>
   </div>
 
+  <div class="field">
+    <%= f.label :category %>
+     <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :content %>
+  </div>
+
 <div class="form-group ">
 <%= f.label :photos %><br>
 <%= f.file_field :photos, multiple: true %><br>

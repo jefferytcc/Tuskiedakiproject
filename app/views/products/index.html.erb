@@ -1,82 +1,85 @@
 <!-- Page Content -->
 <div class="container">
-<div class="col-md-12">
-  <div class="row carousel-holder">
-    <div class="col-md-">
-      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="item active">
-            <img class="slide-image" src="<%= @feature_product[0].photos[0]%>" alt="">
-          </div>
-          <% @feature_product[1..-1].each do |product| %>
-          <div class="item">
-            <img class="slide-image" src="<%= product.photos[0]%>" alt="">
-          </div>
-          <%end%>
-        </div>
-        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="col-sm-4 col-lg-4 col-md-4">
-    <div class="thumbnail">
-      <% @products.each do |product| %>
-      <%= image_tag(product.photos[0], width:150, height:150) %>
-      
-      <div class="caption">
-        <h4 class="pull-right"><%=product.price%></h4>
-        <h4><%= link_to product.title, product_path(product.id)%>
-        </h4>
-        
-        <p><%= product.description %></p>
-      </div>
-      <%end%>
-    </div>
-  </div>
-
-
   <div class="row">
-    <table>
-      <tr>
-        <td class="product_box">
-          <div class="product_img">
-            <% @products.each_slice(3) do |x| %>
-            
-            <tr>
-              <% x.each do |product| %>
-              <% if product.photos? %>
-              <td>
-                <%= image_tag(product.photos[0], width:150, height:150) %><br>
-                <% end %>
-              </div>
-              <div class="caption">
-                <ul class="product_ul">
-                  <li class="product_name"><%= link_to product.title, product_path(product.id) %></li>
-                  <li class="product_icon"><div class="icon_preorder"></div></li>
-                  <li class="product_price" style="clear:right;">RM<%= product.price %><br></li>
-                  <% end %>
-                  <% end %>
-                </div>
-                
-              </ul>
-            </td>
-          </tr>
-        </table>
+
+    <div class="col-md-2">
+
+      <p class="lead">Category</p>
+      <div class="list-group">
+        <a href="#" class="list-group-item">Category 1</a>
+        <a href="#" class="list-group-item">Category 2</a>
+        <a href="#" class="list-group-item">Category 3</a>
+       
       </div>
     </div>
-  </div>
-</div>
+    <div class="col-md-7">
+
+      <div class="row carousel-holder">        
+        <div class="col-md-12">
+          <div id="myCarousel" class="carousel slide">
+            <ol class="carousel-indicators">
+              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="item active">
+                <img class="slide-image" src="<%= @feature_product[0].photos[0] %>" alt="">
+              </div>
+              <% @feature_product[1..-1].each do |product| %>
+              <div class="item">
+                <img class="slide-image" src="<%= product.photos[0]%>" alt="">
+              </div>
+              <%end%>
+            </div>
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div> <!-- col-md-12 -->
+      </div> <!-- row carousel-holder -->
+
+      <div class="row">
+        <% @products.each do |product| %>
+          <div class="col-md-6">
+            <div class="product_itemlist">
+              
+              <table class="product_table" summary="Newly Added Items">
+                <tbody>
+                  
+                  <tr>
+                    <td class="product_box">
+                    <% if product.photos? %>
+                      <div class="product_img"><%= image_tag(product.photos[0], width:80, height:80) %></div>
+                      <ul class="product_ul">
+                        <li class="product_name"><%= link_to product.title, product_path(product.id) %></li>
+                        <li class="product_day">Release date: Jan-2018</li>
+                        <li class="product_price" style="clear:right;"><font class="product_off">RM<%= product.price.to_int %></li>
+                      </ul>
+                    </td>
+                </tbody>
+              </table>
+
+            </div>
+          </div> <!-- col-md-6 -->
+          <%end%>
+        <%end%>
+      </div> <!-- row -->
+    </div> <!-- col-md-9 -->
+
+    <div class="col-md-3">
+      <p class="lead">Shop Name</p>
+      <div class="list-group">
+        <a href="#" class="list-group-item">Category 1</a>
+        <a href="#" class="list-group-item">Category 2</a>
+        <a href="#" class="list-group-item">Category 3</a>
+      </div>
+    </div>
+
+  </div> <!-- row -->
+</div> <!-- container -->

@@ -7,6 +7,9 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @feature_product = Product.where(role: "feature")
+    @product_page = Product.paginate(page: params[:page], per_page: 8)
+    # active_product = @feature_product
+    # inactive_product = the rest of products
   end
 
   # GET /products/1
@@ -71,7 +74,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :price, :description, :image, :remove_image, :remove_photos, :role, photos:[])
+      params.require(:product).permit(:title, :price, :description, :image, :remove_image, :remove_photos, :role, tag_ids: [], photos:[])
     end
 
   def admin_only

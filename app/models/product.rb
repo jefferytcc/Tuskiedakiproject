@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
 
+has_many :product_tags , dependent: :destroy
+	has_many :tags, through: :product_tags
 	attr_accessor :image, :photos
   mount_uploader :image, ImageUploader
   mount_uploaders :photos, ImageUploader

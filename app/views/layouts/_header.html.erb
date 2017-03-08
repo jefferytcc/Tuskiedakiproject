@@ -5,13 +5,9 @@
     </div>
 
     <ul class="nav navbar-nav navbar-right">
-    <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
+    
         <% if user_signed_in? %>
-        <li><%=link_to current_user.email%></li>
-        <li><%= link_to 'Edit account', edit_user_registration_path %></li>
+        <li><%= link_to 'My account', edit_user_registration_path %></li>
         <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
         <% else %>
         <li><%= link_to 'Sign in', new_user_session_path %></li>
@@ -19,6 +15,10 @@
         <% end %>
         <% if user_signed_in? %>
         <% if current_user.try(:admin?) %>
+        <li class="dropdown">
+         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
         <li><%= link_to 'Admin Page', users_path %></li>
         <li><%= link_to 'Create Product', new_product_path %></li>
         <% end %>
@@ -27,3 +27,4 @@
     </ul>
   </div>
 </nav>
+
