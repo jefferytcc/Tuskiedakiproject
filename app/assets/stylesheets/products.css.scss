@@ -18,58 +18,32 @@ footer {
     margin: 50px 0;
 }
 
-tr {
-    display: table-row;
-    vertical-align: inherit;
-    border-color: inherit;
+
+.caption {
+    height: 130px;
+    overflow: hidden;
 }
 
-.product_table {
-    width: 310px;
-    border-collapse: separate;
-    border-spacing: 2px;
+.caption h4 {
+    white-space: nowrap;
 }
 
-.product_box {
-    width: 200x;
-    border: 1px solid #CCC;
-    padding: 1px;
-    vertical-align: top;
+.thumbnail img {
+    width: 214px;
+    height: 310px;
 }
 
-.product_img {
-    margin: 1px;
-    width: 80px;
-    height: 80;
-    float: left;
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
 }
 
-
-.product_ul {
-    font-size: 80%;
-    list-style-type: none;
+.thumbnail {
+    padding: 0;
 }
 
-.product_name {
-    margin: 1px;
-    padding: 2px;
-    float: left;
-    width: 200px;
-    height: auto;
-    line-height: 107%;
-    background-color: #EAEAEA;
-    font-size: 100%;
-    font-weight: normal;
-}
-
-
-.product_price {
-    margin: 2px;
-    width: 200px;
-    color: #CC0000;
-    display: block;
-    font-size: 120%;
-    font-weight: bold;
-    text-align: right;
-    float: right;
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
 }

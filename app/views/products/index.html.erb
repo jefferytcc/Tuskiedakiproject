@@ -4,7 +4,7 @@
 
     <div class="col-md-2">
 
-      <p class="lead">Category</p>
+      <p class="lead"><%= "Welcome,"+ current_user.email if !current_user.nil?%></p>
       <div class="list-group">
         <a href="#" class="list-group-item">Category 1</a>
         <a href="#" class="list-group-item">Category 2</a>
@@ -12,6 +12,7 @@
        
       </div>
     </div>
+    
     <div class="col-md-7">
 
       <div class="row carousel-holder">        
@@ -44,31 +45,20 @@
         </div> <!-- col-md-12 -->
       </div> <!-- row carousel-holder -->
 
-      <div class="row">
-        <% @products.each do |product| %>
-          <div class="col-md-6">
-            <div class="product_itemlist">
-              
-              <table class="product_table" summary="Newly Added Items">
-                <tbody>
-                  
-                  <tr>
-                    <td class="product_box">
-                    <% if product.photos? %>
-                      <div class="product_img"><%= image_tag(product.photos[0], width:80, height:80) %></div>
-                      <ul class="product_ul">
-                        <li class="product_name"><%= link_to product.title, product_path(product.id) %></li>
-                        <li class="product_day">Release date: Jan-2018</li>
-                        <li class="product_price" style="clear:right;"><font class="product_off">RM<%= product.price.to_int %></li>
-                      </ul>
-                    </td>
-                </tbody>
-              </table>
 
-            </div>
-          </div> <!-- col-md-6 -->
+
+ <div class="row">
+        <% @products.each do |product| %>
+         <div class="col-sm-4">
+          <div class="thumbnail">
+            <%= image_tag(product.photos[0]) %>
+              <div class="caption">
+                <h5><%= link_to product.title, product_path(product.id) %></h5>
+                <h6 class="subheader">RM<%= product.price.to_int %></h6>
+              </div>
+             </div> 
+          </div> <!-- col-md-4 -->
           <%end%>
-        <%end%>
       </div> <!-- row -->
     </div> <!-- col-md-9 -->
 
